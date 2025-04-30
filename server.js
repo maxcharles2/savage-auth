@@ -23,6 +23,8 @@ var db
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err)
   db = database
+  db.collection('messages').findOneAndDelete({name: "aa", msg: [ 'aa', '', '' ]})
+  db.collection('messages').findOneAndDelete({name: "aa", msg: [ 'aa', '', '' ]})
   require('./app/routes.js')(app, passport, db);
 }); // connect to our database
 
